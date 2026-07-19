@@ -9,6 +9,10 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json({ limit: "2mb" }));
 app.use(express.static(path.join(__dirname)));
 
+app.get("/", (_req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
+
 function getClient() {
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) {
@@ -268,6 +272,10 @@ app.get("/api/health", (_req, res) => {
   res.json({ ok: true, openaiConfigured: configured });
 });
 
-app.listen(PORT, () => {
-  console.log(`Medsquire AI server running on http://localhost:${PORT}`);
-});
+if (process.env.VERCEL !== "1") {
+  app.listen(PORT, () => {
+    console.log(`Medsquire AI server running on http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;
