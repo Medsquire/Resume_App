@@ -13,6 +13,14 @@ app.get("/", (_req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
+app.get("/resume-jacob-paul.html", (_req, res) => {
+  res.sendFile(path.join(__dirname, "resume-jacob-paul.html"));
+});
+
+app.get("/resume-vinnu.html", (_req, res) => {
+  res.sendFile(path.join(__dirname, "resume-vinnu.html"));
+});
+
 function getClient() {
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) {
