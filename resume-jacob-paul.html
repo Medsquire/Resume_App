@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kuchipudi Jacob Paul - Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;800&family=Spectral:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --panel: #ffffff;
+      --ink: #1a1f2b;
+      --muted: #5c6579;
+      --brand: #0d5bd7;
+      --line: #dde3ee;
+      --chip: #edf3ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Public Sans", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top right, rgba(13, 91, 215, 0.1), transparent 35%),
+        radial-gradient(circle at bottom left, rgba(8, 160, 126, 0.08), transparent 30%),
+        var(--bg);
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.8rem;
+      background: rgba(245, 247, 251, 0.9);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .toolbar button {
+      border: 0;
+      border-radius: 999px;
+      padding: 0.6rem 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: #fff;
+      background: linear-gradient(90deg, #0d5bd7, #0b7be0);
+    }
+
+    .toolbar a {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 0.6rem 1rem;
+      text-decoration: none;
+      font-weight: 700;
+      color: var(--ink);
+      background: #e9edf5;
+    }
+
+    .sheet {
+      width: min(1100px, 94%);
+      margin: 1.2rem auto 2rem;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: 0 20px 55px rgba(31, 42, 68, 0.12);
+      overflow: hidden;
+    }
+
+    .jd-panel {
+      width: min(1100px, 94%);
+      margin: 1rem auto 0;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 10px 30px rgba(31, 42, 68, 0.08);
+      padding: 0.9rem;
+    }
+
+    .jd-title {
+      margin: 0 0 0.45rem;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--brand);
+      font-weight: 800;
+    }
+
+    .jd-panel textarea {
+      width: 100%;
+      min-height: 130px;
+      resize: vertical;
+      border: 1px solid #d0d8e7;
+      border-radius: 10px;
+      padding: 0.7rem;
+      font-family: inherit;
+      line-height: 1.45;
+    }
+
+    .jd-actions {
+      margin-top: 0.55rem;
+      display: flex;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .jd-secondary {
+      border: 0;
+      border-radius: 999px;
+      padding: 0.6rem 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: #24344f;
+      background: #e8edf7;
+    }
+
+    .ai-status {
+      margin-top: 0.5rem;
+      color: #2a3d5e;
+      font-size: 0.9rem;
+    }
+
+    .ats-pill {
+      margin-left: auto;
+      background: #ecf7ef;
+      color: #1f7f4d;
+      border: 1px solid #b7e3c6;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 800;
+      padding: 0.35rem 0.7rem;
+    }
+
+    .header {
+      padding: 2rem;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(120deg, #0f274a 0%, #123d7b 100%);
+      color: #fff;
+    }
+
+    .name {
+      margin: 0;
+      font-family: "Spectral", serif;
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+    }
+
+    .role {
+      margin: 0.4rem 0 0;
+      font-size: 1.04rem;
+      font-weight: 700;
+      color: #d6e7ff;
+    }
+
+    .meta {
+      margin-top: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      font-size: 0.92rem;
+    }
+
+    .meta span {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 999px;
+      padding: 0.35rem 0.7rem;
+    }
+
+    .content {
+      padding: 1.25rem 1.4rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 0.95rem;
+      background: #fff;
+    }
+
+    h2 {
+      margin: 0 0 0.6rem;
+      font-size: 0.98rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--brand);
+    }
+
+    p {
+      margin: 0.35rem 0;
+      line-height: 1.45;
+      color: var(--ink);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .chip {
+      background: var(--chip);
+      border: 1px solid #d3e2ff;
+      color: #194ea8;
+      border-radius: 999px;
+      padding: 0.3rem 0.6rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .entry {
+      padding: 0.7rem 0;
+      border-top: 1px dashed var(--line);
+    }
+
+    .entry:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .entry-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .title {
+      font-weight: 800;
+    }
+
+    .company {
+      font-weight: 700;
+      color: #2d3b55;
+    }
+
+    .time {
+      font-weight: 700;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    ul {
+      margin: 0.4rem 0 0;
+      padding-left: 1rem;
+    }
+
+    li {
+      margin: 0.2rem 0;
+      line-height: 1.4;
+    }
+
+    .cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+    }
+
+    @media (max-width: 920px) {
+      .content {
+        grid-template-columns: 1fr;
+      }
+      .cols {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .toolbar {
+        position: static;
+        flex-wrap: wrap;
+        justify-content: stretch;
+        padding: 0.65rem;
+      }
+
+      .toolbar button,
+      .toolbar a {
+        flex: 1 1 100%;
+        text-align: center;
+      }
+
+      .sheet,
+      .jd-panel {
+        width: 92%;
+      }
+
+      .header {
+        padding: 1.2rem 1rem;
+      }
+
+      .meta {
+        gap: 0.45rem;
+        font-size: 0.84rem;
+      }
+
+      .meta span {
+        width: 100%;
+      }
+
+      .content {
+        padding: 0.9rem;
+      }
+
+      .jd-actions {
+        gap: 0.5rem;
+      }
+
+      .jd-actions button {
+        width: 100%;
+      }
+
+      .ats-pill {
+        margin-left: 0;
+      }
+    }
+
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+
+      body {
+        background: #fff;
+      }
+      .toolbar {
+        display: none;
+      }
+      .jd-panel {
+        display: none;
+      }
+      .sheet {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .header {
+        padding: 1rem 1.1rem;
+      }
+
+      .content {
+        grid-template-columns: 1fr;
+        gap: 0.55rem;
+        padding: 0.75rem 0.9rem 1rem;
+      }
+
+      .card,
+      .entry,
+      .meta span {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <button id="downloadPdfBtn" type="button">Download PDF</button>
+    <button id="downloadWordBtn" type="button">Download Word</button>
+    <button id="printBtn" type="button">Print</button>
+    <a href="index.html">Back to Builder</a>
+  </div>
+
+  <section class="jd-panel">
+    <p class="jd-title">Description-Driven Resume</p>
+    <textarea id="descriptionInput" placeholder="Paste job description here. Key Skills, Professional Summary, Technical Skills, and Professional Experience will update automatically."></textarea>
+    <div class="jd-actions">
+      <button id="applyDescriptionBtn">Apply Description</button>
+      <button id="deepAiBuildBtn">Deep AI Build (90% ATS Target)</button>
+      <button id="resetDescriptionBtn" class="jd-secondary">Reset Default</button>
+      <span id="atsPill" class="ats-pill">ATS: --%</span>
+    </div>
+    <p id="aiStatus" class="ai-status">Status: Idle</p>
+  </section>
+
+  <article class="sheet">
+    <header class="header">
+      <h1 class="name">KUCHIPUDI JACOB PAUL</h1>
+      <p class="role">Product Owner / Full-Stack .NET Architect</p>
+      <div class="meta">
+        <span>Email: jacobpaul.kuchipudi@gmail.com</span>
+        <span>Phone: +91 9912382221</span>
+        <span>Hyderabad, India</span>
+      </div>
+    </header>
+
+    <section class="content">
+      <div>
+        <section class="card">
+          <h2>Key Skills</h2>
+          <div class="chips" id="keySkillsChips"></div>
+        </section>
+
+        <section class="card">
+          <h2>Technical Skills</h2>
+          <div id="technicalSkillsBlock"></div>
+        </section>
+
+        <section class="card">
+          <h2>Education</h2>
+          <p><strong>B.Tech (ECE)</strong> - JNTU, Hyderabad (2007 - 2011)</p>
+          <p><strong>Intermediate</strong> - Vignan Junior College, Guntur (2005 - 2007)</p>
+          <p><strong>SSC</strong> - Singareni High School (2004 - 2005)</p>
+        </section>
+
+        <section class="card">
+          <h2>Personal Information</h2>
+          <p>Nationality: Indian</p>
+          <p>Languages: Telugu (Fluent), English (Fluent), Hindi (Basic)</p>
+          <p>Date of Birth: 12-Aug-1989</p>
+          <p>Gender: Male</p>
+          <p class="muted">Address: Flat no 302, 1-10-36, Laxmi Srinivasa Heights, Ashok Nagar, Himayat Nagar, Hyderabad, 500020</p>
+          <p>Interests: Artificial Intelligence, New Technologies, Self-improvement, Start-ups, Strength Training</p>
+        </section>
+      </div>
+
+      <div>
+        <section class="card">
+          <h2>Professional Summary</h2>
+          <p id="professionalSummaryText"></p>
+        </section>
+
+        <section class="card">
+          <h2>Professional Experience</h2>
+          <div id="experienceBlock"></div>
+        </section>
+      </div>
+    </section>
+  </article>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://unpkg.com/jszip@3.10.1/dist/jszip.min.js"></script>
+  <script>
+    const BASE_PROFILE = {
+      summary: "Highly accomplished Technical Lead and Full-Stack .NET Architect with 13+ years of experience in designing, developing, and leading scalable enterprise applications.",
+      keySkills: [
+        "Full-Stack Development",
+        ".NET & Azure Expertise",
+        "Business-Tech Integration",
+        "AI Implementations",
+        "Process Automation",
+        "Project Management",
+        "Database Design",
+        "Team Management",
+        "Strategy & Planning",
+        "Mentoring",
+        "Agile SDLC",
+        "Consulting"
+      ],
+      technicalSkills: {
+        "Languages & Stack": [".NET Core", "C#", "ASP.NET MVC", "Angular", "React", "TypeScript", "JavaScript"],
+        "Cloud & DevOps": ["Azure", "Cosmos DB", "Blob Storage", "Azure DevOps", "Azure Functions", "CI/CD"],
+        "Architecture": ["Microservices", "Event-Driven Architecture", "API Design", "Distributed Systems"],
+        "Databases": ["SQL Server", "MySQL", "PostgreSQL", "MongoDB", "Entity Framework"],
+        "Testing": ["TDD", "NUnit", "Moq", "Selenium", "BDD", "Performance Tuning"],
+        "Security": ["OAuth", "Identity Server", "Secure Coding Practices", "JWT Authentication"]
+      },
+      experiences: [
+        {
+          title: "Product Owner / Sr Manager",
+          company: "Tekreant India Pvt Ltd, Hyderabad, India",
+          time: "Jul 2022 - Nov 2024",
+          projects: "Joberra, ClinicOnaCall, Task Manager, Asset Management, Lab Inventory Services",
+          tech: ".NET Core, C#, Azure, Microservices, TDD, Angular, SQL Server",
+          roleContext: "Owned end-to-end product strategy and engineering delivery for multi-tenant SaaS platforms, leading cross-functional teams across architecture, DevOps, and QA.",
+          bullets: [
+            { text: "Led 80 engineers across development, architecture, DevOps, and QA to deliver a flight aggregator platform handling 3M+ requests/day.", tags: ["lead", "management", "scale"] },
+            { text: "Spearheaded API-first architecture and event-driven microservices, reducing downtime by 30%.", tags: ["api", "microservices", "architecture", "availability"] },
+            { text: "Implemented Azure DevOps CI/CD pipelines, cutting deployment time by 40%.", tags: ["azure", "devops", "ci/cd", "automation"] },
+            { text: "Optimized database queries and caching, improving response times by 25%.", tags: ["sql", "database", "performance"] },
+            { text: "Strengthened security via OAuth 2.0, JWT authentication, and Azure security best practices.", tags: ["security", "oauth", "jwt", "compliance"] }
+          ]
+        },
+        {
+          title: "Analyst",
+          company: "ValueLabs LLC, Hyderabad, India",
+          time: "Jul 2019 - Jul 2022",
+          projects: "miTrends, Claim Examiner Portal (CEP)",
+          tech: ".NET Core, REST APIs, Azure DevOps, Docker, SQL Server, Angular",
+          roleContext: "Delivered healthcare-domain enterprise applications for US clients, driving API performance, team mentoring, and quality engineering practices across the SDLC.",
+          bullets: [
+            { text: "Led a 5-member team building healthcare applications for Mitchell International Inc.", tags: ["lead", "healthcare", "delivery"] },
+            { text: "Improved API performance by 35% through SQL optimization and caching strategies.", tags: ["api", "sql", "performance"] },
+            { text: "Enhanced maintainability using SOLID principles, automated testing, and CI/CD.", tags: ["testing", "ci/cd", "quality"] },
+            { text: "Implemented event-driven microservices, reducing response time by 20%.", tags: ["microservices", "architecture", "performance"] }
+          ]
+        },
+        {
+          title: "Tech Lead",
+          company: "Warrous Pvt Ltd, Hyderabad, India",
+          time: "Jun 2017 - Jul 2019",
+          projects: "CycleClick, Contact Point Marketing, Vgarages, Vlink",
+          tech: ".NET Core, C#, Azure, REST API, Angular, SQL Server",
+          roleContext: "Led full-cycle delivery of automobile and marketing technology products, owning cloud architecture, REST API design, and hands-on engineering for five concurrent client projects.",
+          bullets: [
+            { text: "Led full SDLC for 5 automobile technology projects with on-time delivery.", tags: ["sdlc", "delivery", "lead"] },
+            { text: "Built scalable campaign management portals using .NET Core, Angular, and Azure.", tags: ["azure", "scale", "full-stack"] },
+            { text: "Reduced server cost by 30% through cloud architecture and API optimization.", tags: ["architecture", "api", "optimization"] }
+          ]
+        },
+        {
+          title: "Software Engineer",
+          company: "Concentix Pvt Ltd, Hyderabad, India",
+          time: "Jan 2013 - Jun 2017",
+          projects: "ILM Application, Direct Mobile Marketing, Return Mail Processing, Social Campaign Management",
+          tech: "ASP.NET MVC, C#, Knockout.js, SQL Server, IIS Server",
+          roleContext: "Built and maintained backend services and client-facing web applications for digital marketing campaigns, focusing on mobile integrations, database optimization, and user engagement.",
+          bullets: [
+            { text: "Developed 20+ mobile applications as backend developer integrating Microsoft web services.", tags: ["backend", "web services", "delivery"] },
+            { text: "Built dynamic landing pages for auto dealerships and increased user engagement by 50%.", tags: ["frontend", "engagement", "optimization"] },
+            { text: "Optimized database workloads and reduced query execution times by 40%.", tags: ["database", "sql", "performance"] }
+          ]
+        }
+      ]
+    };
+
+    const STOP_WORDS = new Set(["the", "and", "for", "with", "you", "your", "are", "our", "this", "that", "will", "from", "have", "has", "into", "been", "their", "they", "them", "who", "what", "where", "when", "than", "then", "should", "must", "able", "work", "team", "role", "job", "year", "years", "experience", "skills", "skill", "using", "use", "about", "various", "working", "solutions", "solution", "recommend", "recommended", "teams", "also", "well", "strong", "good", "best", "like", "such", "more", "other", "new", "any", "all", "some", "both", "each", "how", "not", "but", "its", "out", "may", "per", "via", "can", "key", "top", "high", "help", "make", "need", "ways", "day", "time", "plus", "cross", "hands", "great", "ideal", "play", "join", "build", "support", "across", "within", "ensure", "drive", "manage", "own", "set", "based", "focused", "required", "including", "related", "align", "report", "multiple", "deliver", "part", "take", "provide", "apply", "proven", "solid", "deep", "level", "highly", "responsible", "growing", "seeking", "looking", "candidate", "candidates", "opportunity", "opportunities", "position", "positions", "company", "organization", "environment", "environments", "tools", "tool", "knowledge", "understanding", "ability", "background", "passion", "passionate", "fast", "scale", "global", "mission"]);
+
+    const KEYWORD_TO_SKILL = {
+      "azure": "Azure",
+      "ai": "AI Solutions",
+      "python": "Python Integration",
+      "django": "Django",
+      "sql": "SQL",
+      "vector": "Vector Databases",
+      "microservices": "Microservices",
+      "api": "API Design",
+      "architecture": "Solution Architecture",
+      "devops": "DevOps",
+      "ci/cd": "CI/CD",
+      "security": "Security & Compliance",
+      "agile": "Agile Delivery",
+      "lead": "Team Leadership",
+      "stakeholder": "Stakeholder Management",
+      "automation": "Process Automation"
+    };
+
+    const DYNAMIC_TECH_SKILL_MAP = {
+      "Languages & Stack": {
+        "python": "Python",
+        "django": "Django",
+        "fastapi": "FastAPI",
+        "node": "Node.js",
+        "javascript": "JavaScript",
+        "typescript": "TypeScript",
+        "react": "React",
+        "angular": "Angular",
+        "dotnet": ".NET Core",
+        ".net": ".NET Core",
+        "c#": "C#"
+      },
+      "Cloud & DevOps": {
+        "azure": "Azure",
+        "aws": "AWS",
+        "gcp": "GCP",
+        "docker": "Docker",
+        "kubernetes": "Kubernetes",
+        "devops": "Azure DevOps",
+        "ci/cd": "CI/CD",
+        "terraform": "Terraform"
+      },
+      "Architecture": {
+        "microservices": "Microservices",
+        "api": "API Design",
+        "event-driven": "Event-Driven Architecture",
+        "distributed": "Distributed Systems",
+        "scalable": "Scalability Engineering",
+        "serverless": "Serverless Architecture",
+        "rest": "REST API",
+        "graphql": "GraphQL"
+      },
+      "Databases": {
+        "sql": "SQL Server",
+        "mysql": "MySQL",
+        "postgresql": "PostgreSQL",
+        "postgres": "PostgreSQL",
+        "mongodb": "MongoDB",
+        "cosmos": "Cosmos DB",
+        "vector": "Vector Databases",
+        "redis": "Redis",
+        "entity framework": "Entity Framework"
+      },
+      "Testing": {
+        "tdd": "TDD",
+        "nunit": "NUnit",
+        "moq": "Moq",
+        "selenium": "Selenium",
+        "bdd": "BDD",
+        "pytest": "PyTest",
+        "xunit": "xUnit",
+        "performance": "Performance Tuning"
+      },
+      "Security": {
+        "oauth": "OAuth",
+        "identity": "Identity Server",
+        "jwt": "JWT Authentication",
+        "secure": "Secure Coding Practices",
+        "hipaa": "HIPAA Compliance",
+        "encryption": "Data Encryption",
+        "owasp": "OWASP Best Practices"
+      }
+    };
+
+    function normalize(text) {
+      return (text || "")
+        .toLowerCase()
+        .replace(/[^a-z0-9+\s/.-]/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    function getTopKeywords(description, limit = 16) {
+      const words = normalize(description).split(" ").filter(Boolean);
+      const counter = new Map();
+      for (const word of words) {
+        if (word.length < 3 || STOP_WORDS.has(word)) {
+          continue;
+        }
+        counter.set(word, (counter.get(word) || 0) + 1);
+      }
+      return [...counter.entries()]
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, limit)
+        .map(([word]) => word);
+    }
+
+    function buildDynamicSkills(description) {
+      const normalized = normalize(description);
+      const matched = [];
+      Object.entries(KEYWORD_TO_SKILL).forEach(([key, skill]) => {
+        if (normalized.includes(key)) {
+          matched.push(skill);
+        }
+      });
+
+      const combined = [...matched, ...BASE_PROFILE.keySkills];
+      return [...new Set(combined)].slice(0, 14);
+    }
+
+    function buildDynamicSummary(description) {
+      const normalized = normalize(description);
+
+      // Collect mapped skill labels from KEYWORD_TO_SKILL (proper names, not raw words)
+      const mappedSkills = [];
+      Object.entries(KEYWORD_TO_SKILL).forEach(([key, skill]) => {
+        if (normalized.includes(key)) {
+          mappedSkills.push(skill);
+        }
+      });
+
+      if (!mappedSkills.length) {
+        return BASE_PROFILE.summary + " Proven expertise in .NET Core, Azure, REST API, Microservices, Angular, SQL Server, and DevOps CI/CD pipelines.";
+      }
+
+      const skillList = mappedSkills.slice(0, 6);
+      const last = skillList.pop();
+      const joinedSkills = skillList.length ? skillList.join(", ") + ", and " + last : last;
+
+      return BASE_PROFILE.summary + " Brings targeted expertise in " + joinedSkills + ", delivering scalable, high-availability enterprise solutions aligned with modern engineering standards.";
+    }
+
+    function buildDynamicTechnicalSkills(description) {
+      const normalized = normalize(description);
+      const output = {};
+
+      Object.entries(BASE_PROFILE.technicalSkills).forEach(([category, items]) => {
+        const prioritized = items.filter((item) => normalized.includes(normalize(item)));
+        const fallback = items.filter((item) => !prioritized.includes(item));
+        const dynamicCandidates = [];
+
+        const categoryMap = DYNAMIC_TECH_SKILL_MAP[category] || {};
+        Object.entries(categoryMap).forEach(([token, skill]) => {
+          if (normalized.includes(token) && !prioritized.includes(skill) && !fallback.includes(skill)) {
+            dynamicCandidates.push(skill);
+          }
+        });
+
+        output[category] = [...prioritized, ...dynamicCandidates, ...fallback].slice(0, 10);
+      });
+
+      return output;
+    }
+
+    function scoreBullet(bullet, normalizedDescription) {
+      return bullet.tags.reduce((acc, tag) => (normalizedDescription.includes(tag) ? acc + 2 : acc), 0);
+    }
+
+    function scoreExperience(experience, normalizedDescription) {
+      const bulletScore = experience.bullets.reduce((sum, bullet) => sum + scoreBullet(bullet, normalizedDescription), 0);
+      const techScore = normalize(experience.tech)
+        .split(",")
+        .map((item) => item.trim())
+        .filter(Boolean)
+        .reduce((sum, item) => (normalizedDescription.includes(item) ? sum + 1 : sum), 0);
+      return bulletScore + techScore;
+    }
+
+    function buildDynamicExperience(description) {
+      const normalized = normalize(description);
+
+      const rankedExperiences = [...BASE_PROFILE.experiences].sort(
+        (a, b) => scoreExperience(b, normalized) - scoreExperience(a, normalized)
+      );
+
+      return rankedExperiences.map((experience) => {
+        const rankedBullets = [...experience.bullets].sort((a, b) => scoreBullet(b, normalized) - scoreBullet(a, normalized));
+        const bullets = rankedBullets.slice(0, 4).map((item) => item.text);
+        if (experience.roleContext) {
+          bullets.unshift(experience.roleContext);
+        }
+        return {
+          ...experience,
+          bullets
+        };
+      });
+    }
+
+    function renderKeySkills(skills) {
+      const container = document.getElementById("keySkillsChips");
+      container.innerHTML = "";
+      skills.forEach((skill) => {
+        const chip = document.createElement("span");
+        chip.className = "chip";
+        chip.textContent = skill;
+        container.appendChild(chip);
+      });
+    }
+
+    function renderTechnicalSkills(technicalSkills) {
+      const container = document.getElementById("technicalSkillsBlock");
+      container.innerHTML = "";
+      Object.entries(technicalSkills).forEach(([category, items]) => {
+        const p = document.createElement("p");
+        const strong = document.createElement("strong");
+        strong.textContent = `${category}: `;
+        p.appendChild(strong);
+        p.appendChild(document.createTextNode(items.join(", ")));
+        container.appendChild(p);
+      });
+    }
+
+    function renderExperience(experiences) {
+      const container = document.getElementById("experienceBlock");
+      container.innerHTML = "";
+
+      experiences.forEach((experience) => {
+        const entry = document.createElement("div");
+        entry.className = "entry";
+
+        entry.innerHTML = `
+          <div class="entry-head">
+            <div>
+              <div class="title">${experience.title}</div>
+              <div class="company">${experience.company}</div>
+            </div>
+            <div class="time">${experience.time}</div>
+          </div>
+          <ul>${experience.bullets.map((bullet) => `<li>${bullet}</li>`).join("")}</ul>
+          <p class="muted"><strong>Projects:</strong> ${experience.projects}</p>
+          <p class="muted"><strong>Tech:</strong> ${experience.tech}</p>
+        `;
+
+        container.appendChild(entry);
+      });
+
+      const earlierCareer = document.createElement("div");
+      earlierCareer.className = "entry";
+      earlierCareer.innerHTML = `
+        <div class="entry-head">
+          <div>
+            <div class="title">Earlier Career: Software Engineer</div>
+            <div class="company">iCool Information Technology Pvt Ltd, Hyderabad, India</div>
+          </div>
+          <div class="time">Aug 2011 - Dec 2012</div>
+        </div>
+      `;
+      container.appendChild(earlierCareer);
+    }
+
+    function downloadSheetAsPdf(fileName) {
+      const sheet = document.querySelector(".sheet");
+      if (!sheet) {
+        alert("Resume sheet not found");
+        return;
+      }
+
+      // Create a clean wrapper for PDF export
+      const wrapper = document.createElement("div");
+      wrapper.style.width = "210mm";
+      wrapper.style.padding = "0";
+      wrapper.style.margin = "0";
+      wrapper.style.backgroundColor = "#ffffff";
+
+      const element = sheet.cloneNode(true);
+      element.querySelector(".toolbar")?.remove();
+      element.querySelector(".jd-panel")?.remove();
+      
+      const contentDiv = element.querySelector(".content");
+      if (contentDiv) {
+        contentDiv.style.gridTemplateColumns = "1fr";
+      }
+
+      wrapper.appendChild(element);
+      document.body.appendChild(wrapper);
+
+      const opt = {
+        margin: 0,
+        filename: fileName,
+        image: { type: "jpeg", quality: 0.95 },
+        html2canvas: {
+          scale: 1,
+          logging: false,
+          useCORS: true,
+          allowTaint: true,
+          backgroundColor: "#ffffff"
+        },
+        jsPDF: {
+          unit: "mm",
+          format: "a4",
+          orientation: "portrait"
+        }
+      };
+
+      try {
+        window.html2pdf().set(opt).from(wrapper).save();
+        setTimeout(() => {
+          if (wrapper.parentNode) {
+            document.body.removeChild(wrapper);
+          }
+        }, 500);
+      } catch (err) {
+        console.error("PDF generation error:", err);
+        if (wrapper.parentNode) {
+          document.body.removeChild(wrapper);
+        }
+        alert("Failed to generate PDF. Please try again.");
+      }
+    }
+
+    function downloadSheetAsWord(fileName) {
+      const sheet = document.querySelector(".sheet");
+      if (!sheet) {
+        alert("Resume sheet not found");
+        return;
+      }
+
+      try {
+        const element = sheet.cloneNode(true);
+        element.querySelector(".toolbar")?.remove();
+        element.querySelector(".jd-panel")?.remove();
+
+        function rgbToHex(rgb) {
+          if (!rgb) return '1A1F2B';
+          const match = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+          if (match) {
+            return [parseInt(match[1]), parseInt(match[2]), parseInt(match[3])].map(x => {
+              const hex = x.toString(16);
+              return hex.length === 1 ? '0' + hex : hex;
+            }).join('').toUpperCase();
+          }
+          return '1A1F2B';
+        }
+
+        let bodyXml = '';
+
+        // Process header
+        const header = element.querySelector('.header');
+        if (header) {
+          const name = header.querySelector('.name')?.textContent || '';
+          const role = header.querySelector('.role')?.textContent || '';
+          const meta = Array.from(header.querySelectorAll('.meta span')).map(s => s.textContent).join(' | ');
+
+          bodyXml += `<w:p><w:pPr><w:shd w:fill="0F274A"/><w:spacing w:before="240" w:after="240"/><w:ind w:left="360" w:right="360"/></w:pPr><w:r><w:rPr><w:b/><w:sz w:val="52"/><w:color w:val="FFFFFF"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>${name.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</w:t></w:r></w:p>`;
+          bodyXml += `<w:p><w:pPr><w:shd w:fill="0F274A"/><w:spacing w:after="120"/><w:ind w:left="360" w:right="360"/></w:pPr><w:r><w:rPr><w:b/><w:sz w:val="24"/><w:color w:val="D6E7FF"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>${role.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</w:t></w:r></w:p>`;
+          bodyXml += `<w:p><w:pPr><w:shd w:fill="0F274A"/><w:spacing w:after="240"/><w:ind w:left="360" w:right="360"/><w:pBdr><w:bottom w:val="single" w:sz="12" w:space="1" w:color="FFFFFF"/></w:pBdr></w:pPr><w:r><w:rPr><w:sz w:val="20"/><w:color w:val="D6E7FF"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>${meta.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</w:t></w:r></w:p>`;
+        }
+
+        // Process content cards
+        const cards = element.querySelectorAll('.card');
+        cards.forEach(card => {
+          const heading = card.querySelector('h2')?.textContent || '';
+          const content = card.innerHTML;
+
+          bodyXml += `<w:p><w:pPr><w:spacing w:before="240" w:after="120"/><w:pBdr><w:top w:val="single" w:sz="24" w:space="1" w:color="DDEAF8"/><w:bottom w:val="single" w:sz="24" w:space="1" w:color="DDEAF8"/><w:left w:val="single" w:sz="24" w:space="1" w:color="DDEAF8"/><w:right w:val="single" w:sz="24" w:space="1" w:color="DDEAF8"/></w:pBdr><w:shd w:fill="FFFFFF"/><w:ind w:left="360" w:right="360"/></w:pPr><w:r><w:rPr><w:b/><w:sz w:val="24"/><w:color w:val="0D5BD7"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>${heading.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</w:t></w:r></w:p>`;
+
+          // Process card content
+          const cardContent = card.cloneNode(true);
+          cardContent.querySelector('h2')?.remove();
+
+          const processCardContent = (node) => {
+            let result = '';
+            for (let child of node.childNodes) {
+              if (child.nodeType === 3) {
+                const text = child.textContent.trim();
+                if (text) {
+                  result += `<w:p><w:r><w:rPr><w:sz w:val="22"/><w:color w:val="1A1F2B"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>${text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</w:t></w:r></w:p>`;
+                }
+              } else if (child.nodeType === 1) {
+                const tag = child.tagName.toLowerCase();
+                if (tag === 'p') {
+                  const style = window.getComputedStyle(child);
+                  const text = child.innerText?.trim();
+                  const color = rgbToHex(style.color);
+                  const fontSize = parseInt(style.fontSize) || 11;
+                  if (text) {
+                    result += `<w:p><w:pPr><w:ind w:left="360"/><w:spacing w:after="80"/></w:pPr><w:r><w:rPr><w:sz w:val="${fontSize * 2}"/><w:color w:val="${color}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>${text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</w:t></w:r></w:p>`;
+                  }
+                } else if (tag === 'strong' || tag === 'b') {
+                  const text = child.textContent.trim();
+                  if (text) {
+                    result += `<w:r><w:rPr><w:b/><w:sz w:val="22"/><w:color w:val="1A1F2B"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>${text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</w:t></w:r>`;
+                  }
+                } else if (tag === 'div' && child.className.includes('chips')) {
+                  const chips = child.querySelectorAll('.chip');
+                  if (chips.length > 0) {
+                    result += `<w:p><w:pPr><w:ind w:left="360"/><w:spacing w:after="120"/></w:pPr>`;
+                    chips.forEach(chip => {
+                      const chipText = chip.textContent.trim();
+                      result += `<w:r><w:rPr><w:sz w:val="20"/><w:color w:val="194EA8"/><w:b/><w:pBdr><w:top w:val="single" w:sz="12" w:space="1" w:color="D3E2FF"/><w:bottom w:val="single" w:sz="12" w:space="1" w:color="D3E2FF"/><w:left w:val="single" w:sz="12" w:space="1" w:color="D3E2FF"/><w:right w:val="single" w:sz="12" w:space="1" w:color="D3E2FF"/></w:pBdr><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>${chipText.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}  </w:t></w:r>`;
+                    });
+                    result += `</w:p>`;
+                  }
+                } else if (tag === 'li') {
+                  const text = child.textContent.trim();
+                  if (text) {
+                    result += `<w:p><w:pPr><w:ind w:left="720" w:hanging="360"/><w:spacing w:after="80"/></w:pPr><w:r><w:rPr><w:sz w:val="22"/><w:color w:val="1A1F2B"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>• ${text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</w:t></w:r></w:p>`;
+                  }
+                } else if (tag === 'ul' || tag === 'ol') {
+                  result += processCardContent(child);
+                } else {
+                  result += processCardContent(child);
+                }
+              }
+            }
+            return result;
+          };
+
+          bodyXml += processCardContent(cardContent);
+        });
+
+        // Build complete Word XML with proper document structure
+        const wordContent = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">
+  <w:body>
+    ${bodyXml}
+    <w:sectPr>
+      <w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" w:header="720" w:footer="720" w:gutter="0"/>
+      <w:pgSz w:w="12240" w:h="15840"/>
+      <w:cols w:num="1"/>
+      <w:docGrid w:linePitch="360"/>
+    </w:sectPr>
+  </w:body>
+</w:document>`;
+
+        const rels = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+  <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/>
+</Relationships>`;
+
+        const contentTypes = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">
+  <Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>
+  <Default Extension="xml" ContentType="application/xml"/>
+  <Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/>
+</Types>`;
+
+        const zip = new JSZip();
+        zip.file("_rels/.rels", rels);
+        zip.file("[Content_Types].xml", contentTypes);
+        zip.file("word/document.xml", wordContent);
+
+        zip.generateAsync({ type: "blob" }).then(blob => {
+          const link = document.createElement("a");
+          link.href = URL.createObjectURL(blob);
+          link.download = fileName;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          URL.revokeObjectURL(link.href);
+        });
+      } catch (err) {
+        console.error("Word generation error:", err);
+        alert("Failed to generate Word document. Please try again.");
+      }
+    }
+
+    function updateAtsPill(score) {
+      const value = Math.max(35, Math.min(99, Number(score || 0)));
+      const pill = document.getElementById("atsPill");
+      pill.textContent = `ATS: ${value}%`;
+
+      if (value >= 90) {
+        pill.style.background = "#ecf7ef";
+        pill.style.borderColor = "#b7e3c6";
+        pill.style.color = "#1f7f4d";
+      } else if (value >= 75) {
+        pill.style.background = "#fff6e8";
+        pill.style.borderColor = "#f2d6a8";
+        pill.style.color = "#9b5f00";
+      } else {
+        pill.style.background = "#fdeeee";
+        pill.style.borderColor = "#f2c0c0";
+        pill.style.color = "#9e2a2a";
+      }
+    }
+
+    function calculateLocalAtsScore(description, summary, skills, technicalSkills, experiences) {
+      const jdKeywords = getTopKeywords(description, 30);
+      const skillText = Array.isArray(skills) ? skills.join(" ") : "";
+
+      const technicalText = Object.values(technicalSkills || {})
+        .filter((items) => Array.isArray(items))
+        .flat()
+        .join(" ");
+
+      const experienceText = (experiences || [])
+        .map((exp) => [
+          exp.title || "",
+          exp.company || "",
+          exp.tech || "",
+          ...(Array.isArray(exp.bullets) ? exp.bullets : [])
+        ].join(" "))
+        .join(" ");
+
+      const resumeCorpus = normalize([summary || "", skillText, technicalText, experienceText].join(" "));
+      const keywordMatches = jdKeywords.filter((kw) => resumeCorpus.includes(kw)).length;
+      const keywordCoverage = jdKeywords.length ? (keywordMatches / jdKeywords.length) * 100 : 0;
+
+      const hasSummary = Boolean((summary || "").trim().length > 30);
+      const hasSkills = Array.isArray(skills) && skills.length >= 8;
+      const hasExperienceBullets = (experiences || []).some((exp) => Array.isArray(exp.bullets) && exp.bullets.length >= 3);
+      const hasTechnicalDepth = Object.values(technicalSkills || {}).some((items) => Array.isArray(items) && items.length >= 5);
+      const quantifiedImpact = /\b\d+(%|\+|x|k|m)?\b/i.test(experienceText);
+
+      let score = 45 + keywordCoverage * 0.4;
+      if (hasSummary) {
+        score += 8;
+      }
+      if (hasSkills) {
+        score += 8;
+      }
+      if (hasExperienceBullets) {
+        score += 10;
+      }
+      if (hasTechnicalDepth) {
+        score += 8;
+      }
+      if (quantifiedImpact) {
+        score += 6;
+      }
+
+      return Math.max(35, Math.min(99, Math.round(score)));
+    }
+
+    function applyDescription(description) {
+      const input = description || "";
+      const dynamicSkills = buildDynamicSkills(input);
+      const dynamicSummary = buildDynamicSummary(input);
+      const dynamicTechnical = buildDynamicTechnicalSkills(input);
+      const dynamicExperience = buildDynamicExperience(input);
+      const localAtsScore = calculateLocalAtsScore(input, dynamicSummary, dynamicSkills, dynamicTechnical, dynamicExperience);
+
+      document.getElementById("professionalSummaryText").textContent = dynamicSummary;
+      renderKeySkills(dynamicSkills);
+      renderTechnicalSkills(dynamicTechnical);
+      renderExperience(dynamicExperience);
+      updateAtsPill(localAtsScore);
+    }
+
+    function setAiStatus(message) {
+      document.getElementById("aiStatus").textContent = `Status: ${message}`;
+    }
+
+    function normalizeExperienceShape(experiences) {
+      if (!Array.isArray(experiences)) {
+        return [];
+      }
+
+      return experiences.map((item) => ({
+        title: item.title || "Role",
+        company: item.company || "Company",
+        time: item.time || "MM/YYYY - Present",
+        projects: item.projects || "",
+        tech: item.tech || "",
+        bullets: Array.isArray(item.bullets) ? item.bullets.slice(0, 5) : []
+      }));
+    }
+
+    async function runDeepAiBuild() {
+      const description = document.getElementById("descriptionInput").value.trim();
+      if (!description) {
+        alert("Please paste a job description first.");
+        return;
+      }
+
+      const aiBtn = document.getElementById("deepAiBuildBtn");
+      aiBtn.disabled = true;
+
+      try {
+        setAiStatus("Analyzing description with AI agents...");
+        const payload = {
+          description,
+          baseProfile: {
+            name: "KUCHIPUDI JACOB PAUL",
+            role: "Product Owner / Full-Stack .NET Architect",
+            summary: BASE_PROFILE.summary,
+            keySkills: BASE_PROFILE.keySkills,
+            technicalSkills: BASE_PROFILE.technicalSkills,
+            experiences: BASE_PROFILE.experiences.map((exp) => ({
+              title: exp.title,
+              company: exp.company,
+              time: exp.time,
+              projects: exp.projects,
+              tech: exp.tech,
+              bullets: exp.bullets.map((b) => b.text)
+            }))
+          }
+        };
+
+        const response = await fetch("/api/deep-ai-resume", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await response.json();
+        if (!response.ok) {
+          throw new Error(data.error || "Deep AI build failed.");
+        }
+
+        setAiStatus("Composing final ATS-optimized resume...");
+
+        const aiSummary = String(data.summary || BASE_PROFILE.summary);
+        const aiSkills = Array.isArray(data.keySkills) && data.keySkills.length ? data.keySkills : BASE_PROFILE.keySkills;
+        const aiTechnical = data.technicalSkills && typeof data.technicalSkills === "object" && Object.keys(data.technicalSkills).length
+          ? data.technicalSkills
+          : BASE_PROFILE.technicalSkills;
+        const aiExperience = normalizeExperienceShape(data.experiences);
+
+        document.getElementById("professionalSummaryText").textContent = aiSummary;
+        renderKeySkills(aiSkills);
+        renderTechnicalSkills(aiTechnical);
+        renderExperience(aiExperience.length ? aiExperience : buildDynamicExperience(description));
+
+        const atsScore = Math.max(60, Math.min(99, Number(data.atsScore || 90)));
+        updateAtsPill(atsScore);
+
+        const notes = Array.isArray(data.analysisNotes) ? data.analysisNotes.filter(Boolean) : [];
+        if (notes.length) {
+          setAiStatus(`Done. ${notes[0]}`);
+        } else {
+          setAiStatus("Done. AI resume build completed with multi-agent optimization.");
+        }
+      } catch (error) {
+        console.error(error);
+        setAiStatus(`AI build failed: ${error.message}`);
+        alert(`AI build failed: ${error.message}`);
+      } finally {
+        aiBtn.disabled = false;
+      }
+    }
+
+    document.getElementById("applyDescriptionBtn").addEventListener("click", () => {
+      const description = document.getElementById("descriptionInput").value.trim();
+      applyDescription(description);
+    });
+
+    document.getElementById("resetDescriptionBtn").addEventListener("click", () => {
+      document.getElementById("descriptionInput").value = "";
+      applyDescription("");
+      setAiStatus("Idle");
+    });
+
+    document.getElementById("deepAiBuildBtn").addEventListener("click", runDeepAiBuild);
+    document.getElementById("downloadPdfBtn").addEventListener("click", () => downloadSheetAsPdf("Jacob_Resume.pdf"));
+    document.getElementById("downloadWordBtn").addEventListener("click", () => downloadSheetAsWord("Jacob_Resume.docx"));
+    document.getElementById("printBtn").addEventListener("click", () => window.print());
+
+    const query = new URLSearchParams(window.location.search);
+    const prefilledDescription = query.get("description") || "";
+    if (prefilledDescription) {
+      document.getElementById("descriptionInput").value = prefilledDescription;
+    }
+    applyDescription(prefilledDescription);
+    setAiStatus("Idle");
+  </script>
+</body>
+</html>

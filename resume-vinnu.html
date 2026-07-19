@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vinnu - Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;800&family=Spectral:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1a1f2b;
+      --muted: #5b6478;
+      --line: #dfe5f1;
+      --bg: #f5f7fb;
+      --panel: #ffffff;
+      --brand: #114a95;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Public Sans", sans-serif;
+      color: var(--ink);
+      background: linear-gradient(170deg, #f6f8fc 0%, #eef3fb 100%);
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      background: rgba(246, 248, 252, 0.93);
+      backdrop-filter: blur(5px);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem;
+    }
+
+    .toolbar button,
+    .toolbar a {
+      border: 0;
+      border-radius: 999px;
+      padding: 0.6rem 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .toolbar button {
+      color: #fff;
+      background: linear-gradient(90deg, #114a95, #1c6fd1);
+    }
+
+    .toolbar a {
+      color: var(--ink);
+      background: #e8edf7;
+    }
+
+    .sheet {
+      width: min(1000px, 94%);
+      margin: 1rem auto 2rem;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 16px 45px rgba(30, 38, 53, 0.1);
+    }
+
+    .header {
+      padding: 1.8rem;
+      color: #fff;
+      background: linear-gradient(120deg, #0d2f5a 0%, #1a5fb2 100%);
+    }
+
+    .header h1 {
+      margin: 0;
+      font-family: "Spectral", serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+    }
+
+    .header p {
+      margin: 0.4rem 0 0;
+      color: #d8e8ff;
+      font-weight: 600;
+    }
+
+    .header .meta {
+      margin-top: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      font-size: 0.9rem;
+    }
+
+    .header .meta span {
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.14);
+      border-radius: 999px;
+      padding: 0.33rem 0.64rem;
+    }
+
+    .content {
+      padding: 1.1rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 0.85rem;
+    }
+
+    .card h2 {
+      margin: 0 0 0.55rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.9rem;
+      color: var(--brand);
+    }
+
+    .card p,
+    .card li {
+      color: var(--ink);
+      line-height: 1.42;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    ul {
+      margin: 0.3rem 0 0;
+      padding-left: 1rem;
+    }
+
+    .entry {
+      border-top: 1px dashed var(--line);
+      padding-top: 0.6rem;
+      margin-top: 0.6rem;
+    }
+
+    .entry:first-of-type {
+      border-top: 0;
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    @media (max-width: 900px) {
+      .content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .toolbar {
+        position: static;
+        flex-wrap: wrap;
+        justify-content: stretch;
+        padding: 0.65rem;
+      }
+
+      .toolbar button,
+      .toolbar a {
+        flex: 1 1 100%;
+        text-align: center;
+      }
+
+      .sheet {
+        width: 92%;
+        margin-top: 0.8rem;
+      }
+
+      .header {
+        padding: 1.15rem 1rem;
+      }
+
+      .header .meta {
+        gap: 0.45rem;
+        font-size: 0.84rem;
+      }
+
+      .header .meta span {
+        width: 100%;
+      }
+
+      .content {
+        padding: 0.85rem;
+      }
+    }
+
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+
+      .toolbar {
+        display: none;
+      }
+      .sheet {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .header {
+        padding: 1rem 1.1rem;
+      }
+
+      .content {
+        grid-template-columns: 1fr;
+        gap: 0.55rem;
+        padding: 0.75rem 0.9rem 1rem;
+      }
+
+      .card,
+      .entry,
+      .header .meta span {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <button id="downloadPdfBtn" type="button">Download PDF</button>
+    <button id="downloadWordBtn" type="button">Download Word</button>
+    <button id="printBtn" type="button">Print</button>
+    <a href="index.html">Back to Profiles</a>
+  </div>
+
+  <article class="sheet">
+    <header class="header">
+      <h1>VINNU</h1>
+      <p>Resume Profile</p>
+      <div class="meta">
+        <span>Email: your-email@example.com</span>
+        <span>Phone: +91 xxxxxxxxxx</span>
+        <span>Location: India</span>
+      </div>
+    </header>
+
+    <section class="content">
+      <div>
+        <section class="card">
+          <h2>Key Skills</h2>
+          <p>.NET, Azure, Microservices, API Design, SQL, CI/CD, Leadership</p>
+        </section>
+
+        <section class="card">
+          <h2>Technical Skills</h2>
+          <p><strong>Languages:</strong> C#, JavaScript, TypeScript</p>
+          <p><strong>Frameworks:</strong> .NET Core, ASP.NET MVC, Angular, React</p>
+          <p><strong>Cloud:</strong> Azure, Azure DevOps</p>
+          <p><strong>Databases:</strong> SQL Server, PostgreSQL, MongoDB</p>
+        </section>
+
+        <section class="card">
+          <h2>Education</h2>
+          <p>Bachelor Degree - Add details here</p>
+        </section>
+      </div>
+
+      <div>
+        <section class="card">
+          <h2>Professional Summary</h2>
+          <p>Experienced full-stack engineer delivering scalable enterprise solutions with strong backend and cloud focus.</p>
+        </section>
+
+        <section class="card">
+          <h2>Professional Experience</h2>
+
+          <div class="entry">
+            <p><strong>Current Role - Company Name</strong></p>
+            <p class="muted">MM/YYYY - Present</p>
+            <ul>
+              <li>Delivered high-availability systems using cloud-native architecture.</li>
+              <li>Built and optimized APIs for performance and maintainability.</li>
+              <li>Led feature delivery with cross-functional collaboration.</li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <p><strong>Previous Role - Company Name</strong></p>
+            <p class="muted">MM/YYYY - MM/YYYY</p>
+            <ul>
+              <li>Implemented backend services and deployment automation.</li>
+              <li>Improved data workflows and reduced response latency.</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </section>
+  </article>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>  <script src="https://unpkg.com/jszip@3.10.1/dist/jszip.min.js"></script>  <script>
+    function downloadSheetAsPdf(fileName) {
+      const sheet = document.querySelector(".sheet");
+      if (!sheet) {
+        alert("Resume sheet not found");
+        return;
+      }
+
+      // Create a clean wrapper for PDF export
+      const wrapper = document.createElement("div");
+      wrapper.style.width = "210mm";
+      wrapper.style.padding = "0";
+      wrapper.style.margin = "0";
+      wrapper.style.backgroundColor = "#ffffff";
+
+      const element = sheet.cloneNode(true);
+      element.querySelector(".toolbar")?.remove();
+      
+      const contentDiv = element.querySelector(".content");
+      if (contentDiv) {
+        contentDiv.style.gridTemplateColumns = "1fr";
+      }
+
+      wrapper.appendChild(element);
+      document.body.appendChild(wrapper);
+
+      const opt = {
+        margin: 0,
+        filename: fileName,
+        image: { type: "jpeg", quality: 0.95 },
+        html2canvas: {
+          scale: 1,
+          logging: false,
+          useCORS: true,
+          allowTaint: true,
+          backgroundColor: "#ffffff"
+        },
+        jsPDF: {
+          unit: "mm",
+          format: "a4",
+          orientation: "portrait"
+        }
+      };
+
+      try {
+        window.html2pdf().set(opt).from(wrapper).save();
+        setTimeout(() => {
+          if (wrapper.parentNode) {
+            document.body.removeChild(wrapper);
+          }
+        }, 500);
+      } catch (err) {
+        console.error("PDF generation error:", err);
+        if (wrapper.parentNode) {
+          document.body.removeChild(wrapper);
+        }
+        alert("Failed to generate PDF. Please try again.");
+      }
+    }
+
+    function downloadSheetAsWord(fileName) {
+      const sheet = document.querySelector(".sheet");
+      if (!sheet) {
+        alert("Resume sheet not found");
+        return;
+      }
+
+      try {
+        const element = sheet.cloneNode(true);
+        element.querySelector(".toolbar")?.remove();
+
+        function rgbToHex(rgb) {
+          if (!rgb) return '1A1F2B';
+          const match = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+          if (match) {
+            return [parseInt(match[1]), parseInt(match[2]), parseInt(match[3])].map(x => {
+              const hex = x.toString(16);
+              return hex.length === 1 ? '0' + hex : hex;
+            }).join('').toUpperCase();
+          }
+          return '1A1F2B';
+        }
+
+        let bodyXml = '';
+
+        // Process header
+        const header = element.querySelector('header');
+        if (header) {
+          const heading = header.querySelector('h1')?.textContent || '';
+          const subheading = header.querySelector('p')?.textContent || '';
+          const contactInfo = Array.from(header.querySelectorAll('div')).map(d => d.textContent).join(' | ');
+
+          bodyXml += `<w:p><w:pPr><w:spacing w:before="240" w:after="120"/><w:ind w:left="360" w:right="360"/></w:pPr><w:r><w:rPr><w:b/><w:sz w:val="52"/><w:color w:val="1A1F2B"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>${heading.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</w:t></w:r></w:p>`;
+          bodyXml += `<w:p><w:pPr><w:spacing w:after="240"/><w:ind w:left="360" w:right="360"/><w:pBdr><w:bottom w:val="single" w:sz="24" w:space="1" w:color="DDEAF8"/></w:pBdr></w:pPr><w:r><w:rPr><w:sz w:val="22"/><w:color w:val="1A1F2B"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>${subheading.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')} | ${contactInfo.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</w:t></w:r></w:p>`;
+        }
+
+        // Process content cards
+        const cards = element.querySelectorAll('.card');
+        cards.forEach(card => {
+          const heading = card.querySelector('h2')?.textContent || '';
+          const content = card.innerHTML;
+
+          bodyXml += `<w:p><w:pPr><w:spacing w:before="240" w:after="120"/><w:pBdr><w:top w:val="single" w:sz="24" w:space="1" w:color="DDEAF8"/><w:bottom w:val="single" w:sz="24" w:space="1" w:color="DDEAF8"/><w:left w:val="single" w:sz="24" w:space="1" w:color="DDEAF8"/><w:right w:val="single" w:sz="24" w:space="1" w:color="DDEAF8"/></w:pBdr><w:shd w:fill="FFFFFF"/><w:ind w:left="360" w:right="360"/></w:pPr><w:r><w:rPr><w:b/><w:sz w:val="24"/><w:color w:val="0D5BD7"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>${heading.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</w:t></w:r></w:p>`;
+
+          // Process card content
+          const cardContent = card.cloneNode(true);
+          cardContent.querySelector('h2')?.remove();
+
+          const processCardContent = (node) => {
+            let result = '';
+            for (let child of node.childNodes) {
+              if (child.nodeType === 3) {
+                const text = child.textContent.trim();
+                if (text) {
+                  result += `<w:p><w:r><w:rPr><w:sz w:val="22"/><w:color w:val="1A1F2B"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>${text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</w:t></w:r></w:p>`;
+                }
+              } else if (child.nodeType === 1) {
+                const tag = child.tagName.toLowerCase();
+                if (tag === 'p') {
+                  const style = window.getComputedStyle(child);
+                  const text = child.innerText?.trim();
+                  const color = rgbToHex(style.color);
+                  const fontSize = parseInt(style.fontSize) || 11;
+                  if (text) {
+                    result += `<w:p><w:pPr><w:ind w:left="360"/><w:spacing w:after="80"/></w:pPr><w:r><w:rPr><w:sz w:val="${fontSize * 2}"/><w:color w:val="${color}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>${text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</w:t></w:r></w:p>`;
+                  }
+                } else if (tag === 'strong' || tag === 'b') {
+                  const text = child.textContent.trim();
+                  if (text) {
+                    result += `<w:r><w:rPr><w:b/><w:sz w:val="22"/><w:color w:val="1A1F2B"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>${text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</w:t></w:r>`;
+                  }
+                } else if (tag === 'div' && child.className.includes('chips')) {
+                  const chips = child.querySelectorAll('.chip');
+                  if (chips.length > 0) {
+                    result += `<w:p><w:pPr><w:ind w:left="360"/><w:spacing w:after="120"/></w:pPr>`;
+                    chips.forEach(chip => {
+                      const chipText = chip.textContent.trim();
+                      result += `<w:r><w:rPr><w:sz w:val="20"/><w:color w:val="194EA8"/><w:b/><w:pBdr><w:top w:val="single" w:sz="12" w:space="1" w:color="D3E2FF"/><w:bottom w:val="single" w:sz="12" w:space="1" w:color="D3E2FF"/><w:left w:val="single" w:sz="12" w:space="1" w:color="D3E2FF"/><w:right w:val="single" w:sz="12" w:space="1" w:color="D3E2FF"/></w:pBdr><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>${chipText.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}  </w:t></w:r>`;
+                    });
+                    result += `</w:p>`;
+                  }
+                } else if (tag === 'li') {
+                  const text = child.textContent.trim();
+                  if (text) {
+                    result += `<w:p><w:pPr><w:ind w:left="720" w:hanging="360"/><w:spacing w:after="80"/></w:pPr><w:r><w:rPr><w:sz w:val="22"/><w:color w:val="1A1F2B"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>• ${text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</w:t></w:r></w:p>`;
+                  }
+                } else if (tag === 'ul' || tag === 'ol') {
+                  result += processCardContent(child);
+                } else {
+                  result += processCardContent(child);
+                }
+              }
+            }
+            return result;
+          };
+
+          bodyXml += processCardContent(cardContent);
+        });
+
+        // Build complete Word XML with proper document structure
+        const wordContent = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">
+  <w:body>
+    ${bodyXml}
+    <w:sectPr>
+      <w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" w:header="720" w:footer="720" w:gutter="0"/>
+      <w:pgSz w:w="12240" w:h="15840"/>
+      <w:cols w:num="1"/>
+      <w:docGrid w:linePitch="360"/>
+    </w:sectPr>
+  </w:body>
+</w:document>`;
+
+        const rels = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+  <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/>
+</Relationships>`;
+
+        const contentTypes = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">
+  <Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>
+  <Default Extension="xml" ContentType="application/xml"/>
+  <Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/>
+</Types>`;
+
+        const zip = new JSZip();
+        zip.file("_rels/.rels", rels);
+        zip.file("[Content_Types].xml", contentTypes);
+        zip.file("word/document.xml", wordContent);
+
+        zip.generateAsync({ type: "blob" }).then(blob => {
+          const link = document.createElement("a");
+          link.href = URL.createObjectURL(blob);
+          link.download = fileName;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          URL.revokeObjectURL(link.href);
+        });
+      } catch (err) {
+        console.error("Word generation error:", err);
+        alert("Failed to generate Word document. Please try again.");
+      }
+    }
+
+    document.getElementById("downloadPdfBtn").addEventListener("click", () => downloadSheetAsPdf("Vinnu_Resume.pdf"));
+    document.getElementById("downloadWordBtn").addEventListener("click", () => downloadSheetAsWord("Vinnu_Resume.docx"));
+    document.getElementById("printBtn").addEventListener("click", () => window.print());
+  </script>
+</body>
+</html>

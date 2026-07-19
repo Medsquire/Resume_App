@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Medsquire Resume Profiles</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f7f5ef;
+      --panel: #fffdf8;
+      --ink: #1a1a1a;
+      --muted: #57514b;
+      --brand: #0b7a75;
+      --line: #e7ddcf;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(11, 122, 117, 0.12), transparent 35%),
+        radial-gradient(circle at 85% 18%, rgba(230, 145, 96, 0.15), transparent 35%),
+        linear-gradient(165deg, #f8f4ec 0%, #f3ece0 100%);
+    }
+
+    .wrap {
+      width: min(980px, 94%);
+      margin: 2.2rem auto;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero p {
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--brand);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .hero h1 {
+      margin: 0.5rem 0 0;
+      font-family: "Fraunces", serif;
+      font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+    }
+
+    .hero .sub {
+      margin-top: 0.65rem;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 1rem;
+      background: var(--panel);
+      box-shadow: 0 14px 40px rgba(21, 20, 18, 0.08);
+    }
+
+    .card h2 {
+      margin: 0;
+      font-family: "Fraunces", serif;
+      font-size: 1.42rem;
+    }
+
+    .card p {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 0.95rem;
+      text-decoration: none;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(90deg, #0b7a75, #099a92);
+      padding: 0.6rem 0.92rem;
+      border-radius: 999px;
+    }
+
+    @media (max-width: 820px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .wrap {
+        width: min(980px, 92%);
+        margin: 1.1rem auto;
+      }
+
+      .hero {
+        margin-bottom: 0.9rem;
+      }
+
+      .hero p {
+        font-size: 0.74rem;
+      }
+
+      .hero .sub {
+        font-size: 0.9rem;
+        line-height: 1.45;
+      }
+
+      .card {
+        padding: 0.9rem;
+      }
+
+      .card a {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero">
+      <p>Medsquire Resume Hub</p>
+      <h1>Choose Resume Profile</h1>
+      <div class="sub">Only two profiles are available on this page: Jacob and Vinnu.</div>
+    </header>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Jacob Resume</h2>
+        <p>Dynamic description-driven resume page with ATS scoring and Deep AI build workflow.</p>
+        <a href="resume-jacob-paul.html">Open Jacob Resume</a>
+      </article>
+
+      <article class="card">
+        <h2>Vinnu Resume</h2>
+        <p>Dedicated resume page for Vinnu with print-ready formatting for quick PDF export.</p>
+        <a href="resume-vinnu.html">Open Vinnu Resume</a>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
