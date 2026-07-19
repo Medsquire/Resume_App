@@ -1,5 +1,7 @@
 # Medsquire AI Resume Builder
 
+
+
 A web app that tailors resumes to job descriptions, supports AI Agent mode, and exports to PDF or Word format.
 
 This repository now includes a Python multi-agent backend that can automatically select the right AI tool based on task intent.
