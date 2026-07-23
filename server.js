@@ -21,12 +21,39 @@ app.get("/resume-vinnu.html", (_req, res) => {
   res.sendFile(path.join(__dirname, "resume-vinnu.html"));
 });
 
-function getClient() {
+function resolveProvider(preferred) {
+  const candidate = String(preferred || process.env.AI_PROVIDER || "openai").toLowerCase();
+  return candidate === "gemini" ? "gemini" : "openai";
+}
+
+function getClient(preferredProvider) {
+  const provider = resolveProvider(preferredProvider);
+
+  if (provider === "gemini") {
+    const apiKey = process.env.Gemini_API_KEY;
+    if (!apiKey) {
+      throw new Error("Gemini_API_KEY is missing in .env");
+    }
+    return {
+      provider,
+      model: process.env.GEMINI_MODEL || "gemini-2.0-flash",
+      client: new OpenAI({
+        apiKey,
+        baseURL: "https://generativelanguage.googleapis.com/v1beta/openai/"
+      })
+    };
+  }
+
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) {
     throw new Error("OPENAI_API_KEY is missing in .env");
   }
-  return new OpenAI({ apiKey });
+
+  return {
+    provider,
+    model: process.env.OPENAI_MODEL || "gpt-4o-mini",
+    client: new OpenAI({ apiKey })
+  };
 }
 
 function safeParseJson(rawText) {
@@ -45,9 +72,9 @@ function safeParseJson(rawText) {
   }
 }
 
-async function askModelForJson(client, { system, user, temperature = 0.2 }) {
-  const completion = await client.chat.completions.create({
-    model: "gpt-4o-mini",
+async function askModelForJson(ai, { system, user, temperature = 0.2 }) {
+  const completion = await ai.client.chat.completions.create({
+    model: ai.model,
     temperature,
     response_format: { type: "json_object" },
     messages: [
@@ -102,14 +129,15 @@ function buildOutputText(payload) {
 
 app.post("/api/agent-search", async (req, res) => {
   const query = String(req.body?.query || "").trim();
+  const provider = req.body?.provider;
   if (!query) {
     return res.status(400).json({ error: "Query is required." });
   }
 
   try {
-    const client = getClient();
-    const completion = await client.chat.completions.create({
-      model: "gpt-4o-mini",
+    const ai = getClient(provider);
+    const completion = await ai.client.chat.completions.create({
+      model: ai.model,
       temperature: 0.4,
       messages: [
         {
@@ -142,15 +170,16 @@ app.post("/api/agent-search", async (req, res) => {
 app.post("/api/optimize-resume", async (req, res) => {
   const resumeText = String(req.body?.resumeText || "").trim();
   const jobDescription = String(req.body?.jobDescription || "").trim();
+  const provider = req.body?.provider;
 
   if (!resumeText || !jobDescription) {
     return res.status(400).json({ error: "resumeText and jobDescription are required." });
   }
 
   try {
-    const client = getClient();
-    const completion = await client.chat.completions.create({
-      model: "gpt-4o-mini",
+    const ai = getClient(provider);
+    const completion = await ai.client.chat.completions.create({
+      model: ai.model,
       temperature: 0.25,
       messages: [
         {
@@ -198,15 +227,16 @@ app.post("/api/optimize-resume", async (req, res) => {
 app.post("/api/deep-ai-resume", async (req, res) => {
   const description = String(req.body?.description || "").trim();
   const baseProfile = req.body?.baseProfile || {};
+  const provider = req.body?.provider;
 
   if (!description) {
     return res.status(400).json({ error: "description is required." });
   }
 
   try {
-    const client = getClient();
+    const ai = getClient(provider);
 
-    const analysis = await askModelForJson(client, {
+    const analysis = await askModelForJson(ai, {
       system: "You are a senior ATS resume analysis agent. Return JSON only.",
       user: [
         "Analyze the job description for ATS optimization.",
@@ -218,7 +248,7 @@ app.post("/api/deep-ai-resume", async (req, res) => {
       temperature: 0.1
     });
 
-    const writer = await askModelForJson(client, {
+    const writer = await askModelForJson(ai, {
       system: "You are an expert resume writer agent. Rewrite content truthfully and ATS-friendly. Return JSON only.",
       user: [
         "Use the candidate profile and job analysis to create a high-quality tailored resume section output.",
@@ -238,7 +268,7 @@ app.post("/api/deep-ai-resume", async (req, res) => {
       temperature: 0.25
     });
 
-    const auditor = await askModelForJson(client, {
+    const auditor = await askModelForJson(ai, {
       system: "You are an ATS auditor agent. Score resume-job alignment and suggest fixes. Return JSON only.",
       user: [
         "Evaluate ATS alignment quality for the tailored resume below against the given job description.",
@@ -276,8 +306,9 @@ app.post("/api/deep-ai-resume", async (req, res) => {
 });
 
 app.get("/api/health", (_req, res) => {
-  const configured = Boolean(process.env.OPENAI_API_KEY);
-  res.json({ ok: true, openaiConfigured: configured });
+  const openaiConfigured = Boolean(process.env.OPENAI_API_KEY);
+  const geminiConfigured = Boolean(process.env.Gemini_API_KEY);
+  res.json({ ok: true, openaiConfigured, geminiConfigured });
 });
 
 if (process.env.VERCEL !== "1") {
